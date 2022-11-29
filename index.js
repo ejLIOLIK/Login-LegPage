@@ -54,7 +54,7 @@ function LoginMth(){
     }
 }
 
-function printTime(){
+function printTime() {
 
     tStr = " ";
     timeScr.innerHTML = "";
@@ -62,7 +62,7 @@ function printTime(){
     var now = new Date();
 
     strSum(now.getFullYear() + "년 ");
-    strSum((now.getMonth()+1)+ "월 ");
+    strSum((now.getMonth() + 1) + "월 ");
 
     if (now.getDate() < 10) {
         strSum("0" + now.getDate() + "일 ");
@@ -71,23 +71,37 @@ function printTime(){
         strSum(now.getDate() + "일 ");
     }
 
-    if (now.getHours() < 10) {
+    if (now.getHours() == 0) {
+        strSum("0" + "0" + now.getHours() + "시 ");
+    }
+    else if (now.getHours() < 10) { //00
         strSum("0" + now.getHours() + "시 ");
     }
     else {
         strSum(now.getHours() + "시 ");
     }
-    
-    if(now.getMinutes()<10){
-    strSum("0"+ now.getMinutes() + "분 ");}
-    else{
-    strSum(now.getMinutes() + "분 ");}
-    
-    if(now.getSeconds()<10){
-    strSum("0"+now.getSeconds() + "초 ");}
-    else{
-    strSum(now.getSeconds() + "초 ");}
-    
+
+
+    if (now.getMinutes() == 0) {
+        strSum("0" + "0" + now.getMinutes() + "분 ");
+    }
+    else if (now.getMinutes() < 10) { //00
+        strSum("0" + now.getMinutes() + "분 ");
+    }
+    else {
+        strSum(now.getMinutes() + "분 ");
+    }
+
+    if (now.getSeconds() == 10) {
+        strSum("0" + "0" + now.getSeconds() + "초 ");
+    }
+    else if (now.getSeconds() < 10) { //00
+        strSum("0" + now.getSeconds() + "초 ");
+    }
+    else {
+        strSum(now.getSeconds() + "초 ");
+    }
+
     if (now.getMilliseconds() == 0) {
         strSum("0" + "0" + "0" + now.getMilliseconds() + "밀리초 ");
     }
@@ -104,6 +118,6 @@ function printTime(){
     timeScr.innerHTML = tStr;
 }
 
-function strSum(s){
-    tStr = tStr +s;
+function strSum(s) {
+    tStr = tStr + s;
 }
