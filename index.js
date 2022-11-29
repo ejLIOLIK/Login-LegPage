@@ -92,7 +92,7 @@ function printTime() {
         strSum(now.getMinutes() + "분 ");
     }
 
-    if (now.getSeconds() == 10) {
+    if (now.getSeconds() == 0) {
         strSum("0" + "0" + now.getSeconds() + "초 ");
     }
     else if (now.getSeconds() < 10) { //00
